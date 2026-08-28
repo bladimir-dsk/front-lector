@@ -1,31 +1,23 @@
 import { useEffect, useState } from "react";
-
 import { Button, Flex, Typography } from "antd";
-
 import StudentsTable from "@/components/table/StudentsTable";
 import ModalStudentAdd from "@/components/modals/ModalStudentAdd";
-
 import { studentApi } from "@/api/endpoints/studentApi";
-
 import { useNotification } from "@/components/NotificationProvider";
+
 const { Title } = Typography;
 
 export default function StudentsPage() {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(false);
-
   const notify = useNotification();
-
   const [pagination, setPagination] = useState({
     page: 1,
     limit: 10,
     total: 0,
   });
-
   const [modalOpen, setModalOpen] = useState(false);
-
   const [selectedStudent, setSelectedStudent] = useState(null);
-
   const [saving, setSaving] = useState(false);
 
   const loadStudents = async (
@@ -48,6 +40,7 @@ export default function StudentsPage() {
         total: response.meta.total,
       });
     } catch (error) {
+      notify.error("Error al obtener estudiantes");
       console.error("Error al obtener estudiantes:", error);
     } finally {
       setLoading(false);
@@ -90,6 +83,7 @@ export default function StudentsPage() {
 
       if (selectedStudent) {
         await studentApi.update(selectedStudent.id_student, values);
+        notify.success("Alumno actualizado");
       } else {
         await studentApi.create(values);
         notify.success("Alumno registrado");
@@ -121,7 +115,7 @@ export default function StudentsPage() {
         className="mb-6"
       >
         <Title level={2} className="mb-0 text-xl sm:text-2xl">
-          Estudiantes
+          ESTUDIANTES
         </Title>
 
         <Button type="primary" onClick={handleOpenCreate}>

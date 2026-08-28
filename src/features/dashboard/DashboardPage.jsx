@@ -12,7 +12,7 @@ export default function DashboardPage() {
       className="mb-6"
     >
       <Title level={2} className="mb-0 text-xl sm:text-2xl">
-        Panel
+        PANEL
       </Title>
     </Flex>
   );

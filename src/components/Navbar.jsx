@@ -16,7 +16,14 @@ export function Navbar() {
     { key: "/dashboard", icon: <DashboardOutlined />, label: "Dashboard" },
     { key: "/lounge", icon: <TableOutlined />, label: "Salones" },
     { key: "/students", icon: <UserOutlined />, label: "Estudiantes" },
-    { key: "/acces", icon: <ScheduleOutlined />, label: "Accesos" },
+    {
+      icon: <ScheduleOutlined />,
+      label: "Accesos",
+      children: [
+        { key: "/acces", label: "Lista de ingresos" },
+        { key: "/add-access", label: "Agregar ingreso" },
+      ],
+    },
     {
       key: "/settings",
       icon: <SettingOutlined />,

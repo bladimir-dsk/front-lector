@@ -7,6 +7,7 @@ import DashboardPage from "@/features/dashboard/DashboardPage";
 import LoungePage from "@/features/lounge/LoungePage";
 import StudentsPage from "@/features/student/StudentsPage";
 import AccessPage from "@/features/access/AccessPage";
+import AddAccessPage from "@/features/access/AddAccessPage";
 
 export function AppRouter() {
   return (
@@ -28,6 +29,7 @@ export function AppRouter() {
           <Route path="/lounge" element={<LoungePage />} />
           <Route path="/students" element={<StudentsPage />} />
           <Route path="/acces" element={<AccessPage />} />
+          <Route path="/add-access" element={<AddAccessPage />} />
 
           {/* Aquí irán los demás módulos */}
         </Route>

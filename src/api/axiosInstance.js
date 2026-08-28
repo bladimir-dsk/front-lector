@@ -22,8 +22,8 @@ export const api = axios.create({
 api.interceptors.request.use((config) => {
   const token = getAccessToken();
 
-  console.log("TOKEN:", token);
-  console.log("REQUEST:", config.url);
+  // console.log("TOKEN:", token);
+  // console.log("REQUEST:", config.url);
 
   if (token) {
     config.headers.set
